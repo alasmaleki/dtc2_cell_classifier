@@ -1,0 +1,39 @@
+html,
+body {
+  font-family: 'Courier New', Courier, monospace;
+  height: 100%;
+}
+
+body {
+  background: rgb(7,0,126);
+  background: linear-gradient(90deg, rgba(7,0,126,0.9794292717086834) 0%, rgba(179,179,203,0.9654236694677871) 36%, rgba(15,201,238,0.8253676470588236) 100%);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  /* background-color: #a2bed1; */
+}
+#imdiv>img{
+  max-height: 768px;
+}
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#output-image {
+  max-width: 300px;
+  padding-bottom: 10px;
+}

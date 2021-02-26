@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-sm max-height">
+			<h1 class="h2 mb-3 font-weight-normal">Cell & Nucleus segmentation</h1>
+			<h2 class="h4 mb-3 font-weight-normal">Please upload your image</h2>
+		
+
+		
+		<form class="form-signin" method=post enctype=multipart/form-data >
+			<div class="custom-file">
+				<input name="file" type="file" class="py-1 custom-file-input" id="inputfile" onchange="preview_image(event)">
+				<label class=" text-left custom-file-label" for="customFile">Choose a JPG Image</label>
+			</div> 
+			<!-- <input type="file" name="file"
+			class="form-control-file custom-file-input" id="inputfile" onchange="preview_image(event)"> -->
+			<br/>
+			<img id="output-image" class=" py-2 rounded mx-auto d-block" />
+			<button class="btn btn-lg btn-success btn-block" type="submit" onclick="check()">Upload</button>
+		</form>
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	function check(){
+		var file = document.getElementById('inputfile');
+		if(file.value === null || file.value === ""){
+			alert("THERE'S NO FILE");
+			return false;
+		}
+		else{
+			return true;
+		}
+		}
+	
+	</script>
+<script type="text/javascript">
+	function preview_image(event) {
+		var reader = new FileReader();
+		reader.onload = function () {
+			var output = document.getElementById('output-image')
+			output.src = reader.result;
+		}
+		reader.readAsDataURL(event.target.files[0]);
+	}
+</script>
+{% endblock %}
