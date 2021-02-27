@@ -25,7 +25,7 @@ from detectron2.data.catalog import Metadata
 def rand_name():
     # choose from all lowercase letter
     letters = string.ascii_lowercase
-    result_str = ''.join(random.choice(letters) for i in range(4))
+    result_str = ''.join(random.choice(letters) for i in range(4)) + '.jpg'
     return result_str
 
 #################################Detectron Model setup########################
@@ -46,7 +46,7 @@ def detect(img):
 
     v = Visualizer(img[:, :, ::-1], metadata=my_metadata, scale=0.5) 
     out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-
+    fin_img = out.get_image()[:, :, ::-1]
     instances = outputs["instances"]
     scores = instances.get_fields()["scores"].tolist()
     pred_classes = instances.get_fields()["pred_classes"].tolist()
@@ -58,7 +58,8 @@ def detect(img):
         "classes": classes
     }
     img_name = rand_name()
-    cv2.imwrite('static/img/'+img_name+'.jpg' ,out.get_image()[:, :, ::-1])
+    herepath = os.path.dirname(os.path.realpath(__file__))   
+    cvwrite = cv2.imwrite('./static/img/' + img_name , fin_img)
     return response,img_name
 
     #################Clean Up###################

@@ -16,4 +16,7 @@ RUN python -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron
 # Development packages
 RUN pip install flask flask-cors requests opencv-python
 COPY . /home
-CMD  ["python", "/home/web_application/app.py" ]
+WORKDIR /home
+CMD python web_application/app.py
+ENV PORT 8080
+EXPOSE 8080
