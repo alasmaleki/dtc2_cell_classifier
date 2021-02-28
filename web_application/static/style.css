@@ -5,8 +5,10 @@ body {
 }
 
 body {
-  background: rgb(7,0,126);
-  background: linear-gradient(90deg, rgba(7,0,126,0.9794292717086834) 0%, rgba(179,179,203,0.9654236694677871) 36%, rgba(15,201,238,0.8253676470588236) 100%);
+  background: rgb(12,29,199);
+  background: linear-gradient(141deg, rgba(12,29,199,0.9542191876750701) 0%, rgba(172,172,176,0.6516981792717087) 51%, rgba(0,191,255,0.8533788515406162) 100%);
+  
+  
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -15,7 +17,8 @@ body {
   padding-bottom: 40px;
   /* background-color: #a2bed1; */
 }
-.footer{
+
+.footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -23,13 +26,16 @@ body {
   line-height: 35px;
   background-color: #d4d4d4;
 }
-.footer>a{
-text-decoration: none;
-color: skyblue;
+
+.footer>a {
+  text-decoration: none;
+  color: skyblue;
 }
-#imdiv>img{
+
+#imdiv>img {
   max-height: 768px;
 }
+
 .form-signin {
   width: 100%;
   max-width: 330px;

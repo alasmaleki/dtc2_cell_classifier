@@ -15,8 +15,8 @@ RUN pip install -U 'git+https://github.com/cocodataset/cocoapi.git#subdirectory=
 RUN python -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/torch1.7/index.html
 # Development packages
 RUN pip install flask flask-cors requests opencv-python
-COPY . /home
-WORKDIR /home
-CMD python web_application/app.py
 ENV PORT 8080
 EXPOSE 8080
+COPY . /home
+WORKDIR /home/web_application
+CMD python app.py

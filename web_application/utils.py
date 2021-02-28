@@ -51,15 +51,18 @@ def detect(img):
     scores = instances.get_fields()["scores"].tolist()
     pred_classes = instances.get_fields()["pred_classes"].tolist()
     pred_boxes = instances.get_fields()["pred_boxes"].tensor.tolist()
+    pred_masks = instances.get_fields()["pred_masks"].tolist()
     response = {
         "scores": scores,
         "pred_classes": pred_classes,
         "pred_boxes" : pred_boxes,
-        "classes": classes
+        "classes": classes,
+        "pred_masks": pred_masks
     }
     img_name = rand_name()
-    herepath = os.path.dirname(os.path.realpath(__file__))   
-    cvwrite = cv2.imwrite('./static/img/' + img_name , fin_img)
+    herepath = os.path.dirname(os.path.realpath(__file__))  
+    cvpath = herepath + '/static/img/' + img_name 
+    cvwrite = cv2.imwrite(cvpath , fin_img)
     return response,img_name
 
     #################Clean Up###################
